@@ -1,46 +1,46 @@
-import React, { Component } from "react"
-import "bootstrap/dist/css/bootstrap.min.css"
-import axios from "axios"
+import React, { Component } from "react";
+import "bootstrap/dist/css/bootstrap.min.css";
+import axios from "axios";
 
 class Signup extends Component {
   constructor() {
-    super()
+    super();
     this.state = {
       fullName: "",
       username: "",
       email: "",
       password: "",
-    }
+    };
 
-    this.changeFullName = this.changeFullName.bind(this)
-    this.changeUsername = this.changeUsername.bind(this)
-    this.changeEmail = this.changeEmail.bind(this)
-    this.changePassword = this.changePassword.bind(this)
-    this.onSubmit = this.onSubmit.bind(this)
+    this.changeFullName = this.changeFullName.bind(this);
+    this.changeUsername = this.changeUsername.bind(this);
+    this.changeEmail = this.changeEmail.bind(this);
+    this.changePassword = this.changePassword.bind(this);
+    this.onSubmit = this.onSubmit.bind(this);
   }
 
   changeFullName(event) {
     this.setState({
-      fullName: event.target.value
-    })
+      fullName: event.target.value,
+    });
   }
 
   changeUsername(event) {
     this.setState({
-      username: event.target.value
-    })
+      username: event.target.value,
+    });
   }
 
   changeEmail(event) {
     this.setState({
-      email: event.target.value
-    })
+      email: event.target.value,
+    });
   }
 
   changePassword(event) {
     this.setState({
-      password: event.target.value
-    })
+      password: event.target.value,
+    });
   }
 
   onSubmit(event) {
@@ -55,65 +55,67 @@ class Signup extends Component {
 
     axios
       .post("http://localhost:4000/app/signup", registered)
-      .then((res) => console.log(res.data))
+      .then((res) => console.log(res.data));
 
     this.setState({
       fullName: "",
       username: "",
       email: "",
       password: "",
-    })
+    });
   }
 
   render() {
     return (
       <div>
-        <div className="container">
-          <div className="form-div">
-            <form onSubmit={this.onSubmit}>
-              <input
-                type="text"
-                placeholder="Full Name"
-                onChange={this.changeFullName}
-                value={this.state.fullName}
-                className="form-control form-group"
-              />
+        <div className="container text-center">
+          <div className="row justify-content-center my-5">
+            <div className="col-6 col-md-8 col-sm-12">
+              <form onSubmit={this.onSubmit}>
+                <input
+                  type="text"
+                  placeholder="Full Name"
+                  onChange={this.changeFullName}
+                  value={this.state.fullName}
+                  className="form-control form-group mb-3"
+                />
 
-              <input
-                type="text"
-                placeholder="Username"
-                onChange={this.changeUsername}
-                value={this.state.username}
-                className="form-control form-group"
-              />
+                <input
+                  type="text"
+                  placeholder="Username"
+                  onChange={this.changeUsername}
+                  value={this.state.username}
+                  className="form-control form-group mb-3"
+                />
 
-              <input
-                type="email"
-                placeholder="E-mail"
-                onChange={this.changeEmail}
-                value={this.state.email}
-                className="form-control form-group"
-              />
+                <input
+                  type="email"
+                  placeholder="E-mail"
+                  onChange={this.changeEmail}
+                  value={this.state.email}
+                  className="form-control form-group mb-3"
+                />
 
-              <input
-                type="password"
-                placeholder="Password"
-                onChange={this.changePassword}
-                value={this.state.password}
-                className="form-control form-group"
-              />
+                <input
+                  type="password"
+                  placeholder="Password"
+                  onChange={this.changePassword}
+                  value={this.state.password}
+                  className="form-control form-group mb-3"
+                />
 
-              <input
-                type="submit"
-                className="btn btn-danger btn-block"
-                value="submit"
-              />
-            </form>
+                <input
+                  type="submit"
+                  className="btn btn-primary btn-block"
+                  value="Submit"
+                />
+              </form>
+            </div>
           </div>
         </div>
       </div>
-    )
+    );
   }
 }
 
-export default Signup
+export default Signup;

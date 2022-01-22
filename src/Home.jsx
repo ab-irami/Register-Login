@@ -5,14 +5,14 @@ import "bootstrap/dist/css/bootstrap.min.css"
 class Home extends Component {
   render() {
     return (
-      <div className="container">
+      <div className="container text-center">
         <h1>Welcome Home!!</h1>
-        <ul>
-          <li>
-            <Link to="/signup">SignUp</Link>
+        <ul className="nav justify-content-center">
+          <li className="nav-item">
+            <Link className="nav-link text-dark" to="/signup">SignUp</Link>
           </li>
-          <li>
-            <Link to="/login">Login</Link>
+          <li className="nav-item">
+            <Link className="nav-link text-dark" to="/login">Login</Link>
           </li>
         </ul>
       </div>
