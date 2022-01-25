@@ -37,7 +37,14 @@ class Login extends Component {
 
     axios
       .post("http://localhost:4000/app/login", loggedIn)
-      .then((res) => console.log(res.data));
+      .then((res) => {
+        if (res.data.message === "Successful Login") {
+          window.location.href = "/success";
+        } else {
+          window.location.href = "/login";
+        }
+      })
+      .catch((err) => console.log(err));
 
     this.setState({
       email: "",
